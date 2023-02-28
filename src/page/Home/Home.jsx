@@ -12,8 +12,8 @@ import useHolidays from '../../hooks/useHolidays';
 const Home = () => {
     const { isError, isLoading, holidays, submitRequest } = useHolidays();
 
-    const submitSearch = (value) => {
-        submitRequest(value);
+    const submitSearch = (location, year) => {
+        submitRequest(location, year);
     };
 
     return (

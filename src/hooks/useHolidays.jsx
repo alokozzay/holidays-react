@@ -5,8 +5,8 @@ const useHolidays = () => {
     const [isLoading, setLoading] = useState(false);
     const [holidays, setHolidays] = useState(false);
 
-    const submitRequest = (value) => {
-        // console.log(value);
+    const submitRequest = (location, year) => {
+        console.log(location, year);
     };
 
     return { isError, isLoading, holidays, submitRequest };

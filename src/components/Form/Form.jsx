@@ -1,24 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select';
-import fullYears from '../../utils/Years';
+import Years from '../../utils/Years';
 import Countries from '../../utils/Countries';
-
 const Form = ({ submitSearch }) => {
-    const [countries, setСountries] = useState([
-        { value: 'chocolate', label: 'ffChocodfgdflate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
-    ]);
-
     const [location, setLocation] = useState('');
     const [year, setYear] = useState('');
+    const [countries, setCountries] = useState();
+    const [years, setYears] = useState();
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(Countries());
-        // проверка
-        submitSearch(location);
+        if (year && location) submitSearch(year);
+        else console.log('pusto');
     };
+
+    useEffect(() => {
+        try {
+            const fetchData = async (setCountries, setYears) => {
+                let fullCountries = [];
+                const resultCountries = await Countries();
+                resultCountries.forEach((elem) => {
+                    fullCountries.push({
+                        value: elem.countryCode,
+                        label: elem.name,
+                    });
+                });
+                await setCountries(fullCountries);
+
+                const resultYears = Years(1990);
+                setYears(resultYears);
+            };
+
+            fetchData(setCountries, setYears);
+            console.log('work effect to form');
+        } catch {
+            console.log('error in useEffect');
+        }
+    }, []);
+
+    // console.log(countries);
 
     return (
         <form onSubmit={onSubmit}>
@@ -39,7 +59,7 @@ const Form = ({ submitSearch }) => {
                 className='select-form'
                 isClearable={true}
                 isSearchable={true}
-                options={fullYears(1990)}
+                options={years}
                 onChange={(e) => setYear(e.value)}
             ></Select>
 
