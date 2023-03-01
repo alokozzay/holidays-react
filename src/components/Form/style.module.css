@@ -1,0 +1,69 @@
+.form {
+    position: relative;
+}
+
+.main_text {
+    font-size: 45px;
+    max-width: 600px;
+    font-weight: 800;
+    margin: 100px auto;
+}
+
+.input_select {
+    max-width: 400px;
+    color: black;
+    background: transparent;
+    margin: 30px auto;
+}
+
+.btn {
+    color: #fff;
+    text-decoration: none;
+    border: 3px solid #fff;
+    border-radius: 18px;
+    font-family: Helvetica;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 2px;
+
+    padding: 10px;
+    transform: translate(0, 0);
+    overflow: hidden;
+    transition: all 0.3s;
+    max-width: 400px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 140px;
+    background-color: #fff;
+    z-index: -1;
+    top: 49px;
+    left: 50%;
+    /*transform: translateX(-50%);*/
+
+    animation: wave 5s infinite linear;
+    transition: all 1s;
+}
+@keyframes wave {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+.btn:hover {
+    color: #000;
+    /*transition: all 0.3s;*/
+}
+.btn:hover:before {
+    top: 10px;
+    /*transition: all 1s;*/
+}

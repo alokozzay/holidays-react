@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import Years from '../../utils/Years';
 import Countries from '../../utils/Countries';
+import style from './style.module.css';
+
 const Form = ({ submitSearch }) => {
     const [location, setLocation] = useState('');
     const [year, setYear] = useState('');
@@ -38,34 +40,30 @@ const Form = ({ submitSearch }) => {
         }
     }, []);
 
-    // console.log(countries);
-
     return (
         <form onSubmit={onSubmit}>
-            <p>
+            <p className={style.main_text}>
                 To display all holidays, enter your country, as well as the year
                 you need.
             </p>
 
             <Select
-                className='select-form'
-                isClearable={true}
-                isSearchable={true}
+                className={style.input_select}
                 options={countries}
+                placeholder='Enter country...'
                 onChange={(e) => setLocation(e.value)}
             ></Select>
 
             <Select
-                className='select-form'
-                isClearable={true}
-                isSearchable={true}
+                className={style.input_select}
                 options={years}
+                placeholder='Enter year...'
                 onChange={(e) => setYear(e.value)}
             ></Select>
 
-            <button type='submit' onClick={onSubmit}>
+            <div type='submit' onClick={onSubmit} className={style.btn}>
                 submit
-            </button>
+            </div>
         </form>
     );
 };
