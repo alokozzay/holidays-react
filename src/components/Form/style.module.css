@@ -67,3 +67,14 @@
     top: 10px;
     /*transition: all 1s;*/
 }
+
+@media (max-width: 630px) {
+    .main_text {
+        font-size: 35px;
+    }
+}
+@media (max-width: 530px) {
+    .main_text {
+        font-size: 25px;
+    }
+}

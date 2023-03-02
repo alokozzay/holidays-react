@@ -26,6 +26,7 @@
     margin: 0 20px;
     position: relative;
     cursor: pointer;
+    color: #fff;
 }
 .nav_item:before {
     content: '';

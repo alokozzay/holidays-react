@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './style.module.css';
 
 const Header = () => {
@@ -6,9 +7,12 @@ const Header = () => {
             <p className={style.logo}>Holiday</p>
             <nav>
                 <ul className={style.nav}>
-                    <li className={style.nav_item}>Home</li>
-                    <li className={style.nav_item}>One Day</li>
-                    <li className={style.nav_item}>Contacts</li>
+                    <Link to='/'>
+                        <li className={style.nav_item}>Home</li>
+                    </Link>
+                    <Link to='contacts'>
+                        <li className={style.nav_item}>Contacts</li>
+                    </Link>
                 </ul>
             </nav>
         </div>

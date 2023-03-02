@@ -1,0 +1,25 @@
+.main {
+    min-height: 100vh;
+    /* background-color: #fff; */
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.title {
+    font-size: 45px;
+    max-width: 600px;
+    font-weight: 800;
+    margin: 100px auto;
+}
+
+@media (max-width: 630px) {
+    .title {
+        font-size: 35px;
+    }
+}
+@media (max-width: 530px) {
+    .title {
+        font-size: 25px;
+    }
+}

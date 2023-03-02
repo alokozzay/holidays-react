@@ -9,18 +9,26 @@ const Form = ({ submitSearch }) => {
     const [year, setYear] = useState('');
     const [countries, setCountries] = useState();
     const [years, setYears] = useState();
+    const [title, setTitle] = useState(
+        'To display all holidays, enter your country, as well as the year you need.'
+    );
 
+    // при нажатие на кнопку, отправляем данные на для дольнейших получений праздников
     const onSubmit = (e) => {
         e.preventDefault();
-        if (year && location) submitSearch(year);
-        else console.log('pusto');
+        if (year && location) {
+            submitSearch(location, year);
+        } else setTitle('You did not enter a country or year.');
     };
 
     useEffect(() => {
         try {
+            // реализация функции для получение список стран и годов, затем заносим в state.
             const fetchData = async (setCountries, setYears) => {
                 let fullCountries = [];
                 const resultCountries = await Countries();
+
+                // проходим по массиву стран, и переделываем под Select в новый массив.
                 resultCountries.forEach((elem) => {
                     fullCountries.push({
                         value: elem.countryCode,
@@ -33,6 +41,7 @@ const Form = ({ submitSearch }) => {
                 setYears(resultYears);
             };
 
+            // вызываем функцию для получение стран и годов.
             fetchData(setCountries, setYears);
             console.log('work effect to form');
         } catch {
@@ -42,10 +51,7 @@ const Form = ({ submitSearch }) => {
 
     return (
         <form onSubmit={onSubmit}>
-            <p className={style.main_text}>
-                To display all holidays, enter your country, as well as the year
-                you need.
-            </p>
+            <p className={style.main_text}>{title}</p>
 
             <Select
                 className={style.input_select}
@@ -61,7 +67,7 @@ const Form = ({ submitSearch }) => {
                 onChange={(e) => setYear(e.value)}
             ></Select>
 
-            <div type='submit' onClick={onSubmit} className={style.btn}>
+            <div type='Submit' onClick={onSubmit} className={style.btn}>
                 submit
             </div>
         </form>
