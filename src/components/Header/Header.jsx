@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { WavyLink } from 'react-wavy-transitions';
 import style from './style.module.css';
 
 const Header = () => {
@@ -7,12 +8,17 @@ const Header = () => {
             <p className={style.logo}>Holiday</p>
             <nav>
                 <ul className={style.nav}>
-                    <Link to='/'>
+                    <WavyLink
+                        color='#ffffff'
+                        duration={2000}
+                        direction='up'
+                        to='/'
+                    >
                         <li className={style.nav_item}>Home</li>
-                    </Link>
-                    <Link to='contacts'>
+                    </WavyLink>
+                    <WavyLink color='#ffffff' duration={2000} to='/contacts'>
                         <li className={style.nav_item}>Contacts</li>
-                    </Link>
+                    </WavyLink>
                 </ul>
             </nav>
         </div>
