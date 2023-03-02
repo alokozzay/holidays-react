@@ -6,6 +6,7 @@ import Error from '../../components/Error/Error';
 import Holidays from '../../components/Holidays/Holidays';
 
 import useHolidays from '../../hooks/useHolidays';
+import Background from '../../components/Background/Background';
 
 const Home = () => {
     const [isSignal, setSignal] = useState(false);
@@ -28,7 +29,7 @@ const Home = () => {
                 ref.current.scrollIntoView({
                     behavior: 'smooth',
                 })}
-
+            <Background />
             <div className={style.main}>
                 <Header></Header>
                 <Form submitSearch={submitSearch} />

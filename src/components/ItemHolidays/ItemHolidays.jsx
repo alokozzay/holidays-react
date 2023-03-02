@@ -1,5 +1,4 @@
 import style from './style.module.css';
-
 const ItemHolidays = ({ data }) => {
     let date = data.date;
 
@@ -16,11 +15,20 @@ const ItemHolidays = ({ data }) => {
         <div className={style.card_wrapper}>
             <p className={style.title}>
                 <span className={style.code_location}>{data.countryCode}</span>
-                {data.localName}
+                <span className={style.local_name}>{data.localName}</span>
             </p>
-            <p className={style.name}>{data.name}</p>
-            <p className={style.date}>Сelebrated: {formattedDate}</p>
-            <p className={style.type}>Type: {data.types[0]}</p>
+            <p className={style.name}>
+                <strong>English name: </strong>
+                {data.name}
+            </p>
+            <p className={style.date}>
+                {' '}
+                <strong>Сelebrated: </strong>
+                {formattedDate}
+            </p>
+            <p className={style.type}>
+                <strong>Type: </strong> {data.types[0]}
+            </p>
         </div>
     );
 };

@@ -1,6 +1,9 @@
 .main {
     background-color: #fff;
     color: #000;
+    z-index: 1;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
 }
 .wrapper {
     text-align: center;
@@ -22,7 +25,7 @@
     margin: 0 auto;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 974px) {
     .wrapper {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 30px;
@@ -32,10 +35,12 @@
         padding: 50px;
     }
 }
-@media (max-width: 515px) {
+
+@media (max-width: 616px) {
     .wrapper {
         grid-template-columns: repeat(1, 1fr);
         row-gap: 20px;
+        padding: 0 20px;
     }
     .title {
         font-size: 25px;

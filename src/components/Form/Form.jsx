@@ -13,6 +13,22 @@ const Form = ({ submitSearch }) => {
         'To display all holidays, enter your country, as well as the year you need.'
     );
 
+    const customStyles = {
+        control: (provided) => ({
+            ...provided,
+            borderRadius: '15px',
+            border: '2px solid #fff',
+            color: '#fff',
+            height: '50px',
+            fontFamily: '"Montserrat", sans-serif',
+        }),
+        option: (provided) => ({
+            ...provided,
+            border: '1px solid white',
+            color: '#000',
+        }),
+    };
+
     // при нажатие на кнопку, отправляем данные на для дольнейших получений праздников
     const onSubmit = (e) => {
         e.preventDefault();
@@ -54,6 +70,7 @@ const Form = ({ submitSearch }) => {
             <p className={style.main_text}>{title}</p>
 
             <Select
+                styles={customStyles}
                 className={style.input_select}
                 options={countries}
                 placeholder='Enter country...'
@@ -61,6 +78,7 @@ const Form = ({ submitSearch }) => {
             ></Select>
 
             <Select
+                styles={customStyles}
                 className={style.input_select}
                 options={years}
                 placeholder='Enter year...'
@@ -68,7 +86,7 @@ const Form = ({ submitSearch }) => {
             ></Select>
 
             <div type='Submit' onClick={onSubmit} className={style.btn}>
-                submit
+                SUBMIT
             </div>
         </form>
     );
